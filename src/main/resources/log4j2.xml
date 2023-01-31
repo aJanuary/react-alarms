@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="MissMinutes" packages="com.ajanuary.reactalarms.*">
+
+  <Properties>
+    <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n</Property>
+    <Property name="LOG_DIR">logs</Property>
+  </Properties>
+
+  <Appenders>
+    <Console name="console" target="SYSTEM_OUT" follow="true">
+      <PatternLayout pattern="${LOG_PATTERN}"/>
+    </Console>
+
+    <RollingFile
+      name="rollingFile"
+      fileName="${LOG_DIR}/application.log"
+      filePattern="${LOG_DIR}/application.%i.log.gz"
+      ignoreExceptions="false">
+      <PatternLayout>
+        <Pattern>${LOG_PATTERN}</Pattern>
+      </PatternLayout>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="10MB" />
+      </Policies>
+      <DefaultRolloverStrategy max="5">
+        <Delete basePath="${LOG_DIR}" maxDepth="2">
+          <IfFileName glob="*/app-*.log.gz" />
+          <IfLastModified age="P30D" />
+        </Delete>
+      </DefaultRolloverStrategy>
+    </RollingFile>
+  </Appenders>
+
+  <Loggers>
+    <Root level="debug">
+      <AppenderRef ref="console"/>
+      <AppenderRef ref="rollingFile"/>
+    </Root>
+  </Loggers>
+
+</Configuration>

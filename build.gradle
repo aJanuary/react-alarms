@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group 'com.ajanuary'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes 'Multi-Release': 'true'
+    }
+}
+
+
+dependencies {
+    implementation("net.dv8tion:JDA:5.0.0-beta.2")
+    implementation("org.xerial:sqlite-jdbc:3.40.0.0")
+    implementation("net.sourceforge.argparse4j:argparse4j:0.9.0")
+    implementation("io.github.cdimascio:dotenv-java:2.3.2")
+    implementation("org.tomlj:tomlj:1.1.0")
+    implementation("org.apache.logging.log4j:log4j-api:2.20.0")
+    implementation("org.apache.logging.log4j:log4j-core:2.20.0")
+}

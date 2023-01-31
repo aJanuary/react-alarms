@@ -1,0 +1,45 @@
+# Filename of the sqlite database to use to store data about the alarms
+database = "ttt.db"
+
+# Timezone that the times in forum post titles will be interpreted as
+# Will be passed to https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html#of-java.lang.String-
+zone = "Europe/London"
+
+# Emoji to add as the alarm react
+emoji = "\u23F0"
+
+# How many minutes before the time in the forum post title the DM should start being sent
+mins_before_to_notify = 15
+
+# If it takes too long for the messages to be sent, how long after the time in the forum post title
+# should it keep sending DMs before it stops sending DMs
+max_mins_after_to_notify = 5
+
+# Minimum amount of time between sending DMs
+# A smaller number means they are sent quicker, but with an increased chance of Discord blocking
+# for spamming
+min_ms_between_dms = 500
+
+#######################################
+## Configuration for each forum channel
+#######################################
+
+# A name of the channel.
+# This is only used in logging.
+[channel.friday]
+# The Discord ID of the forum channel
+id = "1000000000000000001"
+# The date that the posts in the channel are happening on
+date = 2023-02-28
+
+[channel.saturday]
+id = "1000000000000000002"
+date = 2023-03-01
+
+[channel.sunday]
+id = "1000000000000000003"
+date = 2023-03-02
+
+[channel.monday]
+id = "1000000000000000004"
+date = 2023-03-03
